@@ -1,5 +1,6 @@
 name: Typescript for Pull Requests
 
+# Se ejecuta cada vez que se abre o actualiza un Pull Request hacia master
 on:
   pull_request:
     branches:
@@ -10,29 +11,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '20' # el original usaba '14': ahi los tests fallan porque fetch no existe
 
       - name: Install dependencies
         run: npm install
 
       - name: Lint TypeScript
         run: npm run lint
-  
+
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
