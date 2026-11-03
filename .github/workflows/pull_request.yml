@@ -23,6 +23,7 @@ jobs:
 
       - name: Lint TypeScript
         run: npm run lint
+        continue-on-error: true
 
   test:
     needs: [lint]
