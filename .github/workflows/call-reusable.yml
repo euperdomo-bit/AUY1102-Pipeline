@@ -1,0 +1,15 @@
+name: Re-usable Workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  reusable:
+    permissions:
+      contents: read
+      actions: read
+      packages: read
+      security-events: write
+    uses: ./.github/workflows/reusable-workflow.yml
